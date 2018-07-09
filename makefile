@@ -26,6 +26,6 @@ z_install:
 	git clone --depth 1 -b $(Z_VERSION) --single-branch https://github.com/lotcz/zEngine.git $(Z_DIR)
 
 app_install:
-	cd $(APP_DIR)/app/config & cp -R examples/ .
+	cd $(APP_DIR)/app/config & cp -R examples/. .
 
 install: z_install app_install
