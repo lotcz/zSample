@@ -27,6 +27,6 @@ z_install:
 
 app_install:
 	cd $(APP_DIR)/app/config
-	cp examples/*.php .
+	cp -R examples/ .
 
 install: z_install app_install
