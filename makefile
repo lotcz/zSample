@@ -19,14 +19,14 @@ z_update:
     ./make update
 
 update: pull perms
- 
+
 upgrade: pull checkout perms
 
 z_install:
     git clone --depth 1 -b $(Z_VERSION) --single-branch https://github.com/lotcz/zEngine.git $(Z_DIR)
-    
-app_install:    
+
+app_install:
     cd $(APP_DIR)/app/config
     cp examples/* .
-        
+
 install: z_install app_install
