@@ -8,7 +8,7 @@ perms:
 
 pull:
     cd $(APP_DIR)
-	git pull
+    git pull
 
 checkout:
     cd $(APP_DIR)
