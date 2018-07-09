@@ -1,7 +1,7 @@
 WWW_DIR = $(pwd)
 Z_VERSION = v2
-Z_DIR = $(WWW_DIR)/zEngine
-APP_DIR = $(WWW_DIR)/zSample
+Z_DIR = $(WWW_DIR)zEngine
+APP_DIR = $(WWW_DIR)zSample
 
 perms:
 	chown -R www-data:www-data $(APP_DIR)
