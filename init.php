@@ -4,8 +4,8 @@
 		die("Please provide mySQL server root user name and password as parameters. Example: init.php root rootpass");
 	}
 	
-	$root_user = $argv[0];
-	$root_password = $argv[1];
+	$root_user = $argv[1];
+	$root_password = $argv[2];
 	
 	$dbconfig = include __DIR__ . '/app/config/mysql.php';
 
