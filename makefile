@@ -27,10 +27,5 @@ app_install:
 
 install: z_install app_install
 
-z_init:
-	cd $(Z_DIR) && make init
-
-app_init:
-
-
-init: z_init app_init
+init: 
+	cd $(APP_DIR) && php init.php
