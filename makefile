@@ -7,16 +7,13 @@ perms:
 	chown -R www-data:www-data $(APP_DIR)
 
 pull:
-	cd $(APP_DIR)
-	git pull
+	cd $(APP_DIR) && git pull
 
 checkout:
-	cd $(APP_DIR)
-	git checkout $1
+	cd $(APP_DIR) && git checkout $1
 
 z_update:
-	cd $(Z_DIR)
-	./make update
+	cd $(Z_DIR) && ./make update
 
 update: pull perms
 
@@ -29,3 +26,11 @@ app_install:
 	cd $(APP_DIR)/app/config && cp -R examples/. .
 
 install: z_install app_install
+
+z_init:
+	cd $(Z_DIR) && ./make init
+
+app_init:
+
+
+init: z_init app_init
