@@ -12,7 +12,7 @@
 	$hostname = $dbconfig['db_host'];
 	$dbname = $dbconfig['db_name'];
 	
-	$command = "mysql -h $hostname -D $dbname --user=$root_user --password='$root_password' < ";
+	$command = "mysql --default-character-set=utf8 -h $hostname -D $dbname --user=$root_user --password='$root_password' < ";
 
 	$sql_path = __DIR__ . '/../zEngine/sql/zEngine.sql';
 	$output = shell_exec($command . $sql_path);
