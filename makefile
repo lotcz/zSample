@@ -28,4 +28,4 @@ app_install:
 install: z_install app_install
 
 init: 
-	cd $(APP_DIR) && php init.php
+	cd $(APP_DIR) && php init.php $1 $2 $3
