@@ -13,7 +13,7 @@ checkout:
 	cd $(APP_DIR) && git checkout $1
 
 z_update:
-	cd $(Z_DIR) && ./make update
+	cd $(Z_DIR) && make update
 
 update: z_update pull perms
 
@@ -28,7 +28,7 @@ app_install:
 install: z_install app_install
 
 z_init:
-	cd $(Z_DIR) && ./make init
+	cd $(Z_DIR) && make init
 
 app_init:
 
