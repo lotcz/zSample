@@ -27,5 +27,5 @@ app_install:
 
 install: z_install app_install
 
-init: 
-	cd $(APP_DIR) && php init.php $1 $2 $3
+init:
+	cd $(APP_DIR) && php init.php $(root_name) $(root_pass)
