@@ -15,7 +15,7 @@ checkout:
 z_update:
 	cd $(Z_DIR) && ./make update
 
-update: pull perms
+update: z_update pull perms
 
 upgrade: pull checkout perms
 
