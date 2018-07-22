@@ -9,17 +9,25 @@
 		</ul>
 		
 		<ul class="navbar-nav">
-			<li class="nav-item">
-				<?php
-					if ($this->isCustAuth()) {
-						
-					} else {
-						?>
-							<a class="nav-link" href="<?=$this->url("login") ?>"><?=$this->t('Sign In') ?></a>
-						<?php
-					}
-				?>
-			</li>
+			<?php
+				if ($this->isCustAuth()) {
+					?>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="customerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<?=$this->getCustomer()->getLabel() ?>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="customerDropdown">
+								<a class="dropdown-item" href="<?=$this->url("profile") ?>"><?=$this->t('User Profile') ?></a>
+								<a class="dropdown-item" href="<?=$this->url("logout") ?>"><?=$this->t('Log Out') ?></a>
+							</div>
+						</li>
+					<?php
+				} else {
+					?>					
+						<a class="nav-link" href="<?=$this->url("login") ?>"><?=$this->t('Sign In') ?></a>
+					<?php
+				}
+			?>
 			
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +49,9 @@
 	</nav>
 
 	<main role="main" class="p-1">
-		<?php	
+		<h1><?=$this->getData('page_title') ?></h1>
+		<?php
+			$this->renderMessages();
 			$this->renderPageView();
 		?>
 	</main>
