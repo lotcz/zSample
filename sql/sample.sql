@@ -1,6 +1,4 @@
-DROP DATABASE IF EXISTS zenginetest;
-CREATE DATABASE zenginetest DEFAULT char set utf8;
-USE zenginetest;
+DROP TABLE IF EXISTS `test`;
 
 CREATE TABLE `test` (
   `test_id` INT NOT NULL AUTO_INCREMENT,

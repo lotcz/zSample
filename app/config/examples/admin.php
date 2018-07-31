@@ -2,18 +2,12 @@
 	
 	return [
 		
-		'menu' => [
-			['','E-shop'],
-			['admin/products','Products'],
-			['admin/orders','Orders'],
-			['admin/default/default/customers','Customers'],
+		'show_default_menu' => true,
+		'custom_menu' => [
+			['admin/test','Test'],			
 			[
 				[
-					['admin/categories','Categories'],
-					['admin/currencies', 'Currencies'],
-					['admin/payment_types', 'Payment types'],
-					['admin/delivery_types', 'Delivery types'],					
-					['admin/jobs', 'Jobs']
+					['admin/test-more','Test more'],					
 				],
 				'More...'
 			]
