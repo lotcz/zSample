@@ -1,4 +1,4 @@
-WWW_DIR = $(pwd)
+WWW_DIR = $(shell pwd)
 Z_VERSION = v2
 Z_DIR = $(WWW_DIR)/../zEngine
 APP_DIR = $(WWW_DIR)
