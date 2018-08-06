@@ -2,6 +2,6 @@
 
 	return [
 
-		'error_log_path' => '/var/log/zSample.log'
+		'error_log_path' => 'zSample.log'
 
 	];
