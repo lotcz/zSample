@@ -4,4 +4,4 @@ php:
 install:
   - make z_install app_config
 script: phpunit --bootstrap tests/autoload.php --testdox tests
-after_failure: cat /var/log/zSample.log
+after_failure: cat error.log
