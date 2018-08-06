@@ -1,7 +1,6 @@
-WWW_DIR = $(shell pwd)
+APP_DIR = $(shell pwd)
 Z_VERSION = v2
-Z_DIR = $(WWW_DIR)/../zEngine
-APP_DIR = $(WWW_DIR)
+Z_DIR = $(APP_DIR)/../zEngine
 
 perms:
 	chown -R www-data:www-data $(APP_DIR)
