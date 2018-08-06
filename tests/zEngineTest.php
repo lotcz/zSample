@@ -7,8 +7,9 @@ final class zEngineTest extends TestCase
 {
     public function testCreateZInstance(): void
     {
+		$z = new zEngine('../app');
 		$this->assertNotNull(
-            new zEngine('../app')
+            $z
         );		
        
     }
