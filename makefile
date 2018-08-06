@@ -35,4 +35,4 @@ init:
 	cd $(APP_DIR) && php init.php $(root_name) $(root_pass)
 	
 test:
-	php phpunit --bootstrap tests/autoload.php --testdox tests
+	phpunit --bootstrap tests/autoload.php --testdox tests
