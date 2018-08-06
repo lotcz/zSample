@@ -3,4 +3,4 @@ php:
   - '7.1'
 install:
   - make z_install
-script: phpunit --bootstrap tests\autoload.php tests
+script: phpunit --bootstrap tests/autoload.php tests
