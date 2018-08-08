@@ -11,5 +11,5 @@ public class zSampleTestBase extends SeleniumTestBase {
     public zSampleTestBase() {
         base_url = "http://zSample.loc";        
     }
-        
+
 }

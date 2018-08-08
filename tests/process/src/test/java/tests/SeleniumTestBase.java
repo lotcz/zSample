@@ -22,14 +22,14 @@ public class SeleniumTestBase {
     
     public static RemoteWebDriver driver;
     
-    public String base_url = "fill this in derived class";
+    public String base_url = "fill this in derived class constructor";
    
     public SeleniumTestBase() {
        
     }
     
     public static void initializeDriver() {
-        System.setProperty("webdriver.gecko.driver", "C:\\develop\\TS1\\geckodriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "C:\\develop\\TS1\\geckodriver.exe");
         driver = new FirefoxDriver();
     }
     

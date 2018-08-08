@@ -6,10 +6,13 @@ services:
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
   - sudo apt-get update > /dev/null
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux64.tar.gz
 install:
   - sudo apt-get install apache2
   - sudo make install
   - make init root_name=root root_pass=
+  - tar -xzf geckodriver-v0.21.0-linux64.tar.gz
+  - export webdriver.gecko.driver=/home/travis/build/geckodriver
 before_script:
   - sudo cp -R /home/travis/build/lotcz/zSample /var/www/
   - sudo cp -R /home/travis/build/lotcz/zEngine /var/www/
