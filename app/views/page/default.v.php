@@ -1,5 +1,3 @@
-<h1><?=$this->t('Hello') ?></h1>
-
 <h2><?=$this->t('This is <strong>zEngine</strong> sample app.') ?></h2>
 
 <p>

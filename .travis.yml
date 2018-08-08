@@ -1,9 +1,21 @@
 language: php
 php:
   - '7.1'
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
+  - sudo apt-get update > /dev/null
 install:
-  - make z_install app_config
-script: phpunit --bootstrap tests/autoload.php --testdox tests
+  - sudo apt-get install apache2
+  - make install
+  - make init root_name=root root_pass=
+before_script:
+  - cp -R /home/lotcz/zSample /var/www/
+  - cp -R /home/lotcz/zEngine /var/www/
+  - sudo service apache2 start
+script:
+  - make test
 after_failure:
   - cat zEngine.log
   - cat zSample.log
