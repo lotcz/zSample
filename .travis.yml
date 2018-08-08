@@ -11,8 +11,8 @@ install:
   - sudo make install
   - make init root_name=root root_pass=
 before_script:
-  - cp -R /home/travis/build/lotcz/zSample /var/www/
-  - cp -R /home/travis/build/lotcz/zEngine /var/www/
+  - sudo cp -R /home/travis/build/lotcz/zSample /var/www/
+  - sudo cp -R /home/travis/build/lotcz/zEngine /var/www/
   - sudo service apache2 start
 script:
   - make test
