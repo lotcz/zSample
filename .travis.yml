@@ -12,7 +12,7 @@ install:
   - sudo make install
   - make init root_name=root root_pass=
   - tar -xzf geckodriver-v0.21.0-linux64.tar.gz
-  - export webdriver.gecko.driver=/home/travis/build/geckodriver
+  - export SELENIUM_FIREFOX_DRIVER=/home/travis/build/geckodriver
 before_script:
   - sudo cp -R /home/travis/build/lotcz/zSample /var/www/
   - sudo cp -R /home/travis/build/lotcz/zEngine /var/www/

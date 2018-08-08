@@ -30,6 +30,7 @@ public class SeleniumTestBase {
     
     public static void initializeDriver() {
         //System.setProperty("webdriver.gecko.driver", "C:\\develop\\TS1\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", System.getenv("SELENIUM_FIREFOX_DRIVER"));
         driver = new FirefoxDriver();
     }
     
