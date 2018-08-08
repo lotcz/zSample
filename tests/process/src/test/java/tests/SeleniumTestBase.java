@@ -35,7 +35,9 @@ public class SeleniumTestBase {
     }
     
     public static void quitDriver() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
     
     public String getPageUrl(String relativeUrl) {
