@@ -1,5 +1,5 @@
 APP_DIR = $(shell pwd)
-Z_VERSION = v2
+Z_VERSION = v3
 Z_DIR = $(APP_DIR)/../zEngine
 
 perms:
