@@ -8,11 +8,11 @@ before_install:
   - sudo apt-get update > /dev/null
 install:
   - sudo apt-get install apache2
-  - make install
+  - sudo make install
   - make init root_name=root root_pass=
 before_script:
-  - cp -R /home/lotcz/zSample /var/www/
-  - cp -R /home/lotcz/zEngine /var/www/
+  - cp -R /home/travis/build/lotcz/zSample /var/www/
+  - cp -R /home/travis/build/lotcz/zEngine /var/www/
   - sudo service apache2 start
 script:
   - make test
