@@ -9,7 +9,7 @@ pull:
 	cd $(APP_DIR) && git pull
 
 checkout:
-	cd $(APP_DIR) && git checkout $1
+	cd $(APP_DIR) && git checkout $(version)
 
 z_update:
 	cd $(Z_DIR) && make update
