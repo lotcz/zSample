@@ -9,7 +9,11 @@ public class zSampleTestBase extends SeleniumTestBase {
     public String password = "karel123";
         
     public zSampleTestBase() {
-        base_url = "http://zSample.loc";        
+        if (System.getenv().containsKey("ZSAMPLE_TEST_URL")) {
+            base_url = System.getenv("ZSAMPLE_TEST_URL");
+        } else {
+            base_url = "http://zSample.loc";
+        }
     }
 
 }
