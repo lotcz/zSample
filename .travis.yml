@@ -17,6 +17,7 @@ before_script:
   - sudo cp -R /home/travis/build/lotcz/zSample /var/www/
   - sudo cp -R /home/travis/build/lotcz/zEngine /var/www/
   - sudo service apache2 start
+  - sudo echo "127.0.0.1 zsample.loc" >> /etc/hosts
 script:
   - make test
 after_failure:
