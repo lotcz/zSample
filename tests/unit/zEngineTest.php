@@ -7,8 +7,8 @@ final class zEngineTest extends TestCase
 {
     public function testCreateZInstance(): void
     {
-		$z = new zEngine(__DIR__ . '/../app/');
-		$this->assertNotNull($z);       
+		$z = new zEngine(__DIR__ . '/../../app/');
+		$this->assertNotNull($z);
     }
 
 }
