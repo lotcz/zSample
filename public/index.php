@@ -1,5 +1,4 @@
 <?php
-	require_once '../../zEngine/src/zengine.php';	
-	$z = new zEngine('../app/');	
-	$z->enableModule('app');	
+	require_once __DIR__ . '/../../zEngine/src/zengine.php';
+	$z = new zEngine('../app/', ['app']);
 	$z->run();

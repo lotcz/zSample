@@ -25,14 +25,15 @@ app_config:
 	cp -R $(APP_DIR)/app/config/examples/. $(APP_DIR)/app/config
 
 app_apache_install:
-	cp $(APP_DIR)/zSample.conf /etc/apache2/sites-available
+	cp $(APP_DIR)/init/zSample.conf /etc/apache2/sites-available
+	sudo a2ensite zSample
 
 app_install: app_config app_apache_install
 
 install: z_install app_install
 
 init:
-	cd $(APP_DIR) && php init.php $(root_name) $(root_pass)
+	cd $(APP_DIR) && php init.php
 
 unit_test:
 	phpunit --bootstrap tests/unit/autoload.php --testdox tests/unit

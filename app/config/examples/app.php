@@ -11,6 +11,6 @@
 		// this is minimum required zEngine version
 		'minimum_z_version' => 3.0,
 
-		'modules' => ['mysql', 'i18n', 'admin', 'custauth', 'images', 'staticpages']
+		'modules' => ['resources', 'db', 'i18n', 'custauth', 'admin', 'staticpages']
 
 	];
