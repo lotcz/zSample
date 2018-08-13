@@ -14,7 +14,7 @@
 					?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="customerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<?=$this->getCustomer()->getLabel() ?>
+								<?=$this->z->auth->user->getLabel() ?>
 							</a>
 							<div class="dropdown-menu" aria-labelledby="customerDropdown">
 								<a class="dropdown-item" href="<?=$this->url("profile") ?>"><?=$this->t('User Profile') ?></a>
