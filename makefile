@@ -31,7 +31,7 @@ app_apache_install:
 app_install: app_config app_apache_install
 
 db_install:
-		cd $(APP_DIR)/install && php install.php --visitor_email="$(visitor_email)" --visitor_password="$(visitor_password)" --admin_email="$(admin_email)" --admin_password="$(admin_password)"
+		cd $(APP_DIR)/install && php install.php --root_login="$(root_login)" --root_password="$(root_password)" --visitor_email="$(visitor_email)" --visitor_password="$(visitor_password)" --admin_email="$(admin_email)" --admin_password="$(admin_password)"
 
 install: z_install app_install db_install
 
