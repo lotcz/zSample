@@ -13,7 +13,7 @@
 		'minimum_z_version' => 3.0,
 
 		// modules that are enabled by default
-		'modules' => ['resources', 'db', 'i18n', 'custauth', 'admin'],
+		'modules' => ['resources', 'db', 'i18n', 'auth', 'admin'],
 
 		// modules that are not enabled by default, but need to be installed
 		'also_install' => []

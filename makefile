@@ -25,7 +25,7 @@ app_config:
 	cp -R $(APP_DIR)/app/config/examples/. $(APP_DIR)/app/config
 
 app_apache_install:
-	cp $(APP_DIR)/init/zSample.conf /etc/apache2/sites-available
+	cp $(APP_DIR)/install/zSample.conf /etc/apache2/sites-available
 	sudo a2ensite zSample
 
 app_install: app_config app_apache_install
