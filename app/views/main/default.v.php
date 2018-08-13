@@ -10,7 +10,7 @@
 
 		<ul class="navbar-nav">
 			<?php
-				if ($this->isCustAuth()) {
+				if ($this->z->auth->isAuth()) {
 					?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="customerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

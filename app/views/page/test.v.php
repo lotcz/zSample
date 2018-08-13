@@ -25,7 +25,7 @@
 
 <div class="container">
   <p>
-    Total records: <strong><?=sizeof($items)?></strong>
+    <?=$this->t('Total records')?>: <strong><?=sizeof($items)?></strong>
   </p>
   <?php
     foreach ($items as $item) {
