@@ -23,6 +23,7 @@ install:
   - make db_install root_login=root root_password= visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
 before_script:
   - sudo service apache2 start
+  - xvfb-run
 script:
   - make test
 after_failure:
