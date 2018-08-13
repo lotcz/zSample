@@ -30,10 +30,10 @@ app_apache_install:
 
 app_install: app_config app_apache_install
 
-install: z_install app_install
+db_install:
+		cd $(APP_DIR)/install && php install.php --visitor_email="$(visitor_email)" --visitor_password="$(visitor_password)" --admin_email="$(admin_email)" --admin_password="$(admin_password)"
 
-init:
-	cd $(APP_DIR) && php init.php
+install: z_install app_install db_install
 
 unit_test:
 	phpunit --bootstrap tests/unit/autoload.php --testdox tests/unit

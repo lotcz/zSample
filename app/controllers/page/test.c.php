@@ -6,7 +6,7 @@
 
 		if (z::get('delete', 0) == 1) {
 			$test_id = z::getInt('test_id');
-			TestModel::del($this->z->db, $test_id);
+			TestModel::deleteById($this->z->db, $test_id);
 			$this->message(sprintf('Record with id <strong>%s</strong> was deleted.', $test_id), 'danger');
 		} else {
 			$is_update = false;

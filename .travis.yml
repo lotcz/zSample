@@ -9,17 +9,17 @@ env:
   - MOZ_HEADLESS=1
     SELENIUM_FIREFOX_DRIVER=/home/travis/build/lotcz/zSample/geckodriver
     ZSAMPLE_TEST_URL=http://localhost
-    ZSAMPLE_ADMIN_LOGIN=travis_admin
+    ZSAMPLE_VISITOR_EMAIL=travis_visitor@test.com
+    ZSAMPLE_VISITOR_PASS=travis_customer_pass123
+    ZSAMPLE_ADMIN_EMAIL=travis_admin@test.com
     ZSAMPLE_ADMIN_PASS=travis_admin_pass123
-    ZSAMPLE_CUSTOMER_EMAIL=travis_customer
-    ZSAMPLE_CUSTOMER_PASS=travis_customer_pass123
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
   - sudo apt-get update > /dev/null
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux32.tar.gz && tar -xzf geckodriver-v0.21.0-linux32.tar.gz && sudo chmod a+rwx geckodriver
 install:
   - sudo apt-get install apache2
-  - sudo make install
+  - sudo make install visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
   - make init
 before_script:
   - sudo service apache2 start
