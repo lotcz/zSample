@@ -19,11 +19,11 @@ before_install:
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux32.tar.gz
   - tar -xzf geckodriver-v0.21.0-linux32.tar.gz
 install:
-  - sudo apt-get install apache2 composer
+  - sudo apt-get install apache2
   - sudo service apache2 start
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
-  - sudo make install_files prepare_test
-  - make install_db
+  - sudo make install_files
+  - make install_db prepare_test
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
   - nohup java -jar -Dwebdriver.gecko.driver=$SELENIUM_FIREFOX_DRIVER selenium-server.jar &
