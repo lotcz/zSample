@@ -18,7 +18,7 @@ update: z_update pull perms
 
 upgrade: pull checkout perms
 
-z_install:
+install_z:
 	git clone --depth 1 -b $(Z_VERSION) --single-branch https://github.com/lotcz/zEngine.git $(Z_DIR)
 
 app_config:
@@ -28,15 +28,15 @@ app_apache_install:
 	cp $(APP_DIR)/install/zSample.conf /etc/apache2/sites-available
 	sudo a2ensite zSample
 
-app_install: app_config app_apache_install
+install_app: app_config app_apache_install
 
-db_install:
+install_db:
 	cd $(APP_DIR)/install && php install.php
+
+install_files: install_z install_app
 
 adduser:
 	cd $(APP_DIR)/install && php adduser.php --visitor_email="$(visitor_email)" --visitor_password="$(visitor_password)" --admin_email="$(admin_email)" --admin_password="$(admin_password)"
-
-install: z_install app_install db_install
 
 unit_test:
 	phpunit --bootstrap tests/unit/autoload.php --testdox tests/unit
