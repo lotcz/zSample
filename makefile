@@ -38,10 +38,13 @@ install_files: install_z install_app
 adduser:
 	cd $(APP_DIR)/install && php adduser.php --visitor_email="$(visitor_email)" --visitor_password="$(visitor_password)" --admin_email="$(admin_email)" --admin_password="$(admin_password)"
 
+prepare_test:
+	cd $(APP_DIR)/tests && composer install
+
 unit_test:
-	phpunit --bootstrap tests/unit/autoload.php --testdox tests/unit
+	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --bootstrap $(APP_DIR)/tests/unit/autoload.php --testdox $(APP_DIR)/tests/unit
 
 process_test:
-	phpunit --bootstrap tests/process/autoload.php  --testdox tests/process
+	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --bootstrap $(APP_DIR)/tests/process/autoload.php  --testdox $(APP_DIR)/tests/process
 
 test: unit_test process_test

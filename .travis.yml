@@ -14,12 +14,12 @@ env:
     ZSAMPLE_ADMIN_PASS=travis_admin_pass123
 before_install:
   - sudo apt-get update > /dev/null
-  - wget https://goo.gl/FCSwwD selenium-server.jar
+  - wget https://goo.gl/FCSwwD -O selenium-server.jar
 install:
   - sudo apt-get install apache2
   - sudo service apache2 start
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
-  - sudo make install_files
+  - sudo make install_files prepare_test
   - make install_db
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
