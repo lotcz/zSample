@@ -26,9 +26,10 @@ install:
   - make install_db prepare_test
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
-  - java -jar -Dwebdriver.gecko.driver=$SELENIUM_FIREFOX_DRIVER selenium-server.jar &
+  - nohup java -jar -Dwebdriver.gecko.driver=$SELENIUM_FIREFOX_DRIVER selenium-server.jar &
 script:
   - make test
+  - cat /home/travis/nohup.out
 after_failure:
   - cat zEngine.log
   - cat zSample.log
