@@ -7,7 +7,6 @@ addons:
   firefox: latest
 env:
   - MOZ_HEADLESS=1
-    SELENIUM_FIREFOX_DRIVER=/home/travis/build/lotcz/zSample/geckodriver
     ZSAMPLE_TEST_URL=http://localhost
     ZSAMPLE_VISITOR_EMAIL=travis_visitor@test.com
     ZSAMPLE_VISITOR_PASS=travis_customer_pass123
@@ -15,9 +14,8 @@ env:
     ZSAMPLE_ADMIN_PASS=travis_admin_pass123
 before_install:
   - sudo apt-get update > /dev/null
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux32.tar.gz
+  - wget https://goo.gl/FCSwwD selenium-server.jar
 install:
-  - tar -xzf geckodriver-v0.21.0-linux32.tar.gz
   - sudo apt-get install apache2
   - sudo service apache2 start
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
@@ -25,8 +23,9 @@ install:
   - make install_db
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
+  - java -jar selenium-server.jar
 script:
-  - xvfb-run make test
+  - make test
 after_failure:
   - cat zEngine.log
   - cat zSample.log

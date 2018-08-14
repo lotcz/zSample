@@ -42,6 +42,6 @@ unit_test:
 	phpunit --bootstrap tests/unit/autoload.php --testdox tests/unit
 
 process_test:
-	cd $(APP_DIR)/tests/process && mvn test
+	phpunit --bootstrap tests/process/autoload.php  --testdox tests/process
 
 test: unit_test process_test
