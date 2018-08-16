@@ -42,9 +42,9 @@ prepare_test:
 	cd $(APP_DIR)/tests && composer install
 
 unit_test:
-	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --verbose --debug --colors --bootstrap $(APP_DIR)/tests/unit/autoload.php $(APP_DIR)/tests/unit
+	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --fail-on-risky --fail-on-warning --verbose --debug --colors --bootstrap $(APP_DIR)/tests/unit/autoload.php $(APP_DIR)/tests/unit
 
 process_test:
-	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --verbose --debug --colors --bootstrap $(APP_DIR)/tests/process/autoload.php $(APP_DIR)/tests/process
+	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --fail-on-risky --fail-on-warning --verbose --debug --colors --bootstrap $(APP_DIR)/tests/process/autoload.php $(APP_DIR)/tests/process
 
 test: unit_test process_test

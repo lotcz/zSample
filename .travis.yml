@@ -7,6 +7,7 @@ addons:
   firefox: latest
 env:
   - MOZ_HEADLESS=1
+    DISPLAY=:99.0
     SELENIUM_FIREFOX_DRIVER=/home/travis/build/lotcz/zSample/geckodriver
     ZSAMPLE_TEST_URL=http://localhost
     ZSAMPLE_VISITOR_EMAIL=travis_visitor@test.com
@@ -26,7 +27,7 @@ install:
   - make install_db prepare_test
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
-  - java -jar -Dwebdriver.gecko.driver=$SELENIUM_FIREFOX_DRIVER selenium-server.jar
+  - nohup java -jar -Dwebdriver.gecko.driver=$SELENIUM_FIREFOX_DRIVER selenium-server.jar &
 script:
   - make test
   - cat nohup.out
