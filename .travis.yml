@@ -30,7 +30,5 @@ before_script:
   - nohup java -jar -Dwebdriver.gecko.driver=$SELENIUM_FIREFOX_DRIVER selenium-server.jar &
 script:
   - make test
-after_failure:
-  - cat zEngine.log
-  - cat zSample.log
+after_script:
   - cat nohup.out
