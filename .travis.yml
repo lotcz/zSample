@@ -8,7 +8,7 @@ addons:
 env:
   - MOZ_HEADLESS=1
     SELENIUM_FIREFOX_DRIVER=/home/travis/build/lotcz/zSample/geckodriver
-    ZSAMPLE_TEST_URL=http://localhost
+    ZSAMPLE_TEST_URL=http://127.0.1.1
     ZSAMPLE_VISITOR_EMAIL=travis_visitor@test.com
     ZSAMPLE_VISITOR_PASS=travis_customer_pass123
     ZSAMPLE_ADMIN_EMAIL=travis_admin@test.com
@@ -30,6 +30,7 @@ script:
 after_failure:
   - sudo apache2ctl -S
   - sudo cat /var/log/apache2/error.log
+  - sudo cat /var/log/apache2/access.log
   - sudo cat /var/log/apache2/zSample.log
   - sudo cat /var/log/apache2/zEngine.log
   - curl $ZSAMPLE_TEST_URL
