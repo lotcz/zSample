@@ -29,7 +29,6 @@ app_apache_install:
 	sudo a2dissite 000-default.conf
 	sudo a2ensite zSample.conf
 
-
 install_app: app_config app_apache_install
 
 install_db:

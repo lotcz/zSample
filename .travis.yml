@@ -24,8 +24,7 @@ install:
   - make install_db
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
-  - sudo service apache2 start
-  - sleep 3
+  - sudo service apache2 restart
 script:
   - make test
 after_failure:
