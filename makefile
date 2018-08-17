@@ -26,7 +26,9 @@ app_config:
 
 app_apache_install:
 	cp $(APP_DIR)/install/zSample.conf /etc/apache2/sites-available
-	sudo a2ensite zSample
+	sudo a2dissite 00-default.conf
+	sudo a2ensite zSample.conf
+
 
 install_app: app_config app_apache_install
 
