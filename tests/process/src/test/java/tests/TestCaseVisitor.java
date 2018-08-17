@@ -11,7 +11,7 @@ import org.openqa.selenium.*;
 /**
  * Implements Customer login test
  */
-public class TestCaseCustomer extends zSampleTestBase {
+public class TestCaseVisitor extends zSampleTestBase {
 
     @BeforeClass
     public static void setUpClass() {
@@ -37,7 +37,7 @@ public class TestCaseCustomer extends zSampleTestBase {
         // sign in
         LoginPageObject login_page = new LoginPageObject(this);
         login_page.open();
-        login_page.login(customer_login, customer_password);
+        login_page.login(visitor_email, visitor_password);
         assertTrue("Could not log in.", elementExists(By.className("log-out-menu-item")));
               
     }

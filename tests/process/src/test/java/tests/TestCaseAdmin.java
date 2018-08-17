@@ -37,7 +37,7 @@ public class TestCaseAdmin extends zSampleTestBase {
         // sign in
         AdminLoginPageObject login_page = new AdminLoginPageObject(this);
         login_page.open();
-        login_page.login(admin_login, admin_password);
+        login_page.login(admin_email, admin_password);
         assertEquals("Could not log in.", front_page.main_title.getText(), "Administration test");
               
     }

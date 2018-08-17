@@ -5,18 +5,18 @@ package tests;
  */
 public class zSampleTestBase extends SeleniumTestBase {
     
-    public String customer_login = "karelzav@gmail.com";
-    public String customer_password = "karel123";
+    public String visitor_email = "karel@zavadil.eu";
+    public String visitor_password = "karel123";
     
-    public String admin_login = "karel";
+    public String admin_email = "karel";
     public String admin_password = "karel123";
         
     public zSampleTestBase() {
-        if (System.getenv().containsKey("ZSAMPLE_TEST_URL")) {
-            base_url = System.getenv("ZSAMPLE_TEST_URL");
-        } else {
-            base_url = "http://zSample.loc";
-        }
+        base_url = this.getEnv("ZSAMPLE_TEST_URL", "http://zSample.loc");
+        visitor_email = this.getEnv("ZSAMPLE_VISITOR_EMAIL", "test@test.com");
+        visitor_password = this.getEnv("ZSAMPLE_VISITOR_PASS", "test");
+        admin_email = this.getEnv("ZSAMPLE_ADMIN_EMAIL", "karel@zavadil.eu");
+        admin_password = this.getEnv("ZSAMPLE_ADMIN_PASS", "karel123");
     }
 
 }

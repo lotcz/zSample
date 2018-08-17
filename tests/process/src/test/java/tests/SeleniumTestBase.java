@@ -69,4 +69,12 @@ public class SeleniumTestBase {
         }
     }
     
+    protected String getEnv(String env_name, String default_value) {
+        if (System.getenv().containsKey(env_name)) {
+            return System.getenv(env_name);
+        } else {
+            return default_value;
+        }
+    }
+    
 }
