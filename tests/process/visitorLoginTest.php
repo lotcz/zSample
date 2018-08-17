@@ -26,7 +26,7 @@ class VisitorLoginTest extends PHPUnit_Extensions_Selenium2TestCase {
     }
   }
 
-  public function takeScreenshot($e) {
+  public function takeScreenshot() {
     $filedata = $this->currentScreenshot();
     file_put_contents($this->screenshotPath . '/screenshot' . time() . '.jpg', $filedata);
   }
