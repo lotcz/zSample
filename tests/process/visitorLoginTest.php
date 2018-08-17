@@ -7,8 +7,8 @@ class VisitorLoginTest extends PHPUnit_Extensions_Selenium2TestCase {
   protected $screenshotUrl = 'http://localhost/screenshots';
 
   public function setUp() {
-    //$this->setHost('localhost');
-  //  $this->setPort(4444);
+    $this->setHost('localhost');
+    $this->setPort(4444);
     $this->setBrowserUrl($_SERVER['ZSAMPLE_TEST_URL']);
     $this->setBrowser('firefox');
   }
