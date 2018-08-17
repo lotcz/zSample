@@ -16,15 +16,19 @@ class VisitorLoginTest extends PHPUnit_Extensions_Selenium2TestCase {
   }
 
   public function testFrontPage() {
-    $this->url('/');
-    $content = $this->byClassName('main-title')->text();
-    $this->assertEquals('Hello', $content);
+    try {
+      $this->url('/');
+      $content = $this->byClassName('main-title')->text();
+      $this->assertEquals('Hello', $content);
+    } catch (Exception $e) {
+      $this->takeScreenshot();
+      $this->assertTrue(false);
+    }
   }
 
-  public function onNotSuccessfulTest($e) {
+  public function takeScreenshot($e) {
     $filedata = $this->currentScreenshot();
-    file_put_contents($this->screenshotPath, $filedata);
-    parent::onNotSuccessfulTest($e);
-  }  
+    file_put_contents($this->screenshotPath . '/screenshot' . time() . '.jpg', $filedata);
+  }
 
 }
