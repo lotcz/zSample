@@ -4,6 +4,7 @@ Z_DIR = $(APP_DIR)/../zEngine
 
 perms:
 	chown -R www-data:www-data $(APP_DIR)
+	chmod -R a+r $(APP_DIR)/public
 
 pull:
 	cd $(APP_DIR) && git pull
