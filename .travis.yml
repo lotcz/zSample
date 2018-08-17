@@ -28,5 +28,4 @@ before_script:
 script:
   - make test
 after_failure:
-  - cat zEngine.log
-  - cat zSample.log
+  - curl $ZSAMPLE_TEST_URL
