@@ -19,12 +19,13 @@ before_install:
 install:
   - tar -xzf geckodriver-v0.21.0-linux32.tar.gz
   - sudo apt-get install apache2
-  - sudo service apache2 start
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
   - sudo make install_files
   - make install_db
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
+  - sudo service apache2 start
+  - sleep 3
 script:
   - make test
 after_failure:
