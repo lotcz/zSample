@@ -20,11 +20,11 @@ install:
   - tar -xzf geckodriver-v0.21.0-linux32.tar.gz
   - sudo apt-get install apache2
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
-  - sudo chmod a+r /home
-  - sudo chmod a+r /home/travis
-  - sudo chmod a+r /home/travis/build
-  - sudo chmod a+r /home/travis/build/lotcz
-  - sudo chmod a+r /home/travis/build/lotcz/zSample
+  - sudo chmod a+rx /home
+  - sudo chmod a+rx /home/travis
+  - sudo chmod a+rx /home/travis/build
+  - sudo chmod a+rx /home/travis/build/lotcz
+  - sudo chmod a+rx /home/travis/build/lotcz/zSample
   - sudo make install_files perms
   - make install_db
 before_script:
