@@ -26,7 +26,7 @@ install:
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
 script:
-  - xvfb-run make test
+  - make test
 after_failure:
   - cat zEngine.log
   - cat zSample.log
