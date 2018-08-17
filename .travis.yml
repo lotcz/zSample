@@ -28,4 +28,8 @@ before_script:
 script:
   - make test
 after_failure:
+  - sudo apache2ctl -S
+  - cat /var/log/apache2/error.log
+  - cat /var/log/apache2/zSample.log
+  - cat /var/log/apache2/zEngine.log
   - curl $ZSAMPLE_TEST_URL
