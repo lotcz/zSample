@@ -3,7 +3,7 @@ Z_VERSION = v3
 Z_DIR = $(APP_DIR)/../zEngine
 
 perms:
-	chown -R www-data:www-data $(APP_DIR)
+	chown -R www-data:www-data $(APP_DIR)/public
 	chmod -R a+r $(APP_DIR)/public
 
 pull:
