@@ -28,7 +28,7 @@ install:
   - make install_db
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
-  - sudo a2enmod php7.1
+  - sudo a2enmod php7.1 rewrite
   - sudo service apache2 restart
 script:
   - make test

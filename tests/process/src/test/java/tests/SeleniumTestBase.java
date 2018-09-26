@@ -29,11 +29,7 @@ public class SeleniumTestBase {
     }
     
     public static void initializeDriver() {
-        if (System.getenv().containsKey("SELENIUM_FIREFOX_DRIVER")) {
-            System.setProperty("webdriver.gecko.driver", System.getenv("SELENIUM_FIREFOX_DRIVER"));
-        } else {
-            System.setProperty("webdriver.gecko.driver", "C:\\develop\\TS1\\geckodriver.exe");
-        }
+       System.setProperty("webdriver.gecko.driver", SeleniumTestBase.getEnv("SELENIUM_FIREFOX_DRIVER", "C:\\develop\\vendor\\Selenium\\geckodriver.exe"));        
         driver = new FirefoxDriver();
     }
     
@@ -69,7 +65,7 @@ public class SeleniumTestBase {
         }
     }
     
-    protected String getEnv(String env_name, String default_value) {
+    protected static String getEnv(String env_name, String default_value) {
         if (System.getenv().containsKey(env_name)) {
             return System.getenv(env_name);
         } else {

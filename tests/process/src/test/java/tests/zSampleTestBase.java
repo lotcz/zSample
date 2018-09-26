@@ -12,7 +12,7 @@ public class zSampleTestBase extends SeleniumTestBase {
     public String admin_password = "karel123";
         
     public zSampleTestBase() {
-        base_url = this.getEnv("ZSAMPLE_TEST_URL", "http://zSample.loc");
+        base_url = this.getEnv("ZSAMPLE_TEST_URL", "http://zsample.ubuntu-server.loc");
         visitor_email = this.getEnv("ZSAMPLE_VISITOR_EMAIL", "test@test.com");
         visitor_password = this.getEnv("ZSAMPLE_VISITOR_PASS", "test");
         admin_email = this.getEnv("ZSAMPLE_ADMIN_EMAIL", "karel@zavadil.eu");
