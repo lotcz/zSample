@@ -18,13 +18,10 @@ before_install:
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux32.tar.gz
 install:
   - tar -xzf geckodriver-v0.21.0-linux32.tar.gz
-  - sudo apt-get install apache2
+  - sudo apt-get install apache2 libapache2-mod-php
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
   - sudo chmod a+rx /home
-  - sudo chmod a+rx /home/travis
-  - sudo chmod a+rx /home/travis/build
-  - sudo chmod a+rx /home/travis/build/lotcz
-  - sudo chmod a+rx /home/travis/build/lotcz/zSample
+  - sudo chmod a+rx -R /home/travis
   - sudo make install_files perms
   - make install_db
 before_script:
