@@ -3,7 +3,8 @@ Z_VERSION = v3
 Z_DIR = $(APP_DIR)/../zEngine
 
 perms:
-	chown -R www-data:www-data $(APP_DIR)
+	chown -R www-data:www-data $(APP_DIR)/public
+	chmod -R a+r $(APP_DIR)/public
 
 pull:
 	cd $(APP_DIR) && git pull
@@ -26,7 +27,8 @@ app_config:
 
 app_apache_install:
 	cp $(APP_DIR)/install/zSample.conf /etc/apache2/sites-available
-	sudo a2ensite zSample
+	sudo a2dissite 000-default.conf
+	sudo a2ensite zSample.conf
 
 install_app: app_config app_apache_install
 

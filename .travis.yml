@@ -1,13 +1,12 @@
 language: php
 php:
-  - '7.1'
+  - 7.1
 services:
   - mysql
 addons:
   firefox: latest
 env:
   - MOZ_HEADLESS=1
-    DISPLAY=:99.0
     SELENIUM_FIREFOX_DRIVER=/home/travis/build/lotcz/zSample/geckodriver
     ZSAMPLE_TEST_URL=http://localhost
     ZSAMPLE_VISITOR_EMAIL=travis_visitor@test.com
@@ -15,19 +14,28 @@ env:
     ZSAMPLE_ADMIN_EMAIL=travis_admin@test.com
     ZSAMPLE_ADMIN_PASS=travis_admin_pass123
 before_install:
-  - sudo apt-get update > /dev/null
-  - wget https://goo.gl/FCSwwD -O selenium-server.jar
+  - sudo add-apt-repository -y ppa:ondrej/php
+  - sudo apt-get update
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.21.0/geckodriver-v0.21.0-linux32.tar.gz
-  - tar -xzf geckodriver-v0.21.0-linux32.tar.gz
 install:
-  - sudo apt-get install apache2
-  - sudo service apache2 start
+  - tar -xzf geckodriver-v0.21.0-linux32.tar.gz
+  - sudo apt-get install apache2 php7.1 php7.1-cli php7.1-mysql libapache2-mod-php7.1
+  - sudo update-alternatives --set php /usr/bin/php7.1
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
-  - sudo make install_files
-  - make install_db prepare_test
+  - sudo chmod a+rx /home
+  - sudo chmod a+rx -R /home/travis
+  - sudo make install_files perms
+  - make install_db
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS
-  - java -jar -Dwebdriver.gecko.driver="$SELENIUM_FIREFOX_DRIVER" selenium-server.jar &
-  - sleep 3
+  - sudo a2enmod php7.1 rewrite
+  - sudo service apache2 restart
 script:
   - make test
+after_failure:
+  - sudo apache2ctl -S
+  - sudo cat /var/log/apache2/error.log
+  - sudo cat /var/log/apache2/access.log
+  - sudo cat /var/log/apache2/zSample.log
+  - sudo cat /var/log/apache2/zEngine.log
+  - curl $ZSAMPLE_TEST_URL
