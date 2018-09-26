@@ -47,6 +47,6 @@ unit_test:
 	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --fail-on-risky --fail-on-warning --stop-on-skipped --stop-on-incomplete --verbose --debug --colors --bootstrap $(APP_DIR)/tests/unit/autoload.php $(APP_DIR)/tests/unit
 
 process_test:
-	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --fail-on-risky --fail-on-warning --stop-on-skipped --stop-on-incomplete --verbose --debug --colors --bootstrap $(APP_DIR)/tests/process/autoload.php $(APP_DIR)/tests/process
+	cd $(APP_DIR)/tests/process && mvn test
 
 test: unit_test process_test
