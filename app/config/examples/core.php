@@ -3,13 +3,13 @@
 	return [
 
 		'site_title' => 'zEngine sample app',
-		
+
 		'site_description' => 'Basic eb app made with zEngine.',
-		
+
 		'site_author' => 'Karel Zavadil',
 
 		// will be used to create all link urls, no trailing slash
-		'base_url' => 'http://zsample.loc',
+		'base_url' => 'http://localhost',
 
 		// if turned on, display message of unrecoverable error
 		// turn this off in production!
