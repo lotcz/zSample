@@ -18,6 +18,7 @@ before_install:
 install:
   - tar -xzf geckodriver-v0.21.0-linux32.tar.gz
   - sudo apt-get install apache2 php7.1 php7.1-cli php7.1-mysql libapache2-mod-php7.1
+  - sudo update-alternatives --set php /usr/bin/php7.1
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
   - sudo chmod a+rx /home
   - sudo chmod a+rx -R /home/travis
