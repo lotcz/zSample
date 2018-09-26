@@ -44,7 +44,7 @@ prepare_test:
 	cd $(APP_DIR)/tests && composer install
 
 unit_test:
-	$(APP_DIR)/tests/vendor/phpunit/phpunit/phpunit --fail-on-risky --fail-on-warning --stop-on-skipped --stop-on-incomplete --verbose --debug --colors --bootstrap $(APP_DIR)/tests/unit/autoload.php $(APP_DIR)/tests/unit
+	cd $(APP_DIR)/tests/unit phpunit --fail-on-risky --fail-on-warning --stop-on-skipped --stop-on-incomplete --verbose --debug --colors --bootstrap $(APP_DIR)/tests/unit/autoload.php $(APP_DIR)/tests/unit
 
 process_test:
 	cd $(APP_DIR)/tests/process && mvn test
