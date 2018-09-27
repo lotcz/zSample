@@ -2,7 +2,6 @@
 	require_once __DIR__ . '/../../../models/test.m.php';
 
 	$this->renderAdminForm(
-		'test',
 		'TestModel',
 		[
 			[
