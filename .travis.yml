@@ -24,7 +24,7 @@ install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS zsample;'
   - sudo chmod a+rx /home
   - sudo chmod a+rx -R /home/travis
-  - sudo make install_files perms
+  - sudo make install_files
   - make install_db
 before_script:
   - make adduser visitor_email=$ZSAMPLE_VISITOR_EMAIL visitor_password=$ZSAMPLE_VISITOR_PASS admin_email=$ZSAMPLE_ADMIN_EMAIL admin_password=$ZSAMPLE_ADMIN_PASS

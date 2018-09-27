@@ -35,15 +35,18 @@ install_app: app_config app_apache_install
 install_db:
 	cd $(APP_DIR)/install && php install.php
 
-install_files: install_z install_app
+install_files: install_z install_app perms
+
+install: install_files install_db
 
 adduser:
-	cd $(APP_DIR)/install && php adduser.php --visitor_email="$(visitor_email)" --visitor_password="$(visitor_password)" --admin_email="$(admin_email)" --admin_password="$(admin_password)"
+	cd $(APP_DIR)/install && php adduser.php --visitor_email="$(visitor_email)" --visitor_password="$(visitor_password)" --admin_name="$(admin_name)" --admin_login="$(admin_login)" --admin_email="$(admin_email)" --admin_password="$(admin_password)"
 
 prepare_test:
 	cd $(APP_DIR)/tests && composer install
 
 unit_test:
+	cd $(Z_DIR) && make test
 	cd $(APP_DIR) && phpunit --bootstrap tests/unit/autoload.php --testdox tests/unit
 
 process_test:
