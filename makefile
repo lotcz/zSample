@@ -33,7 +33,7 @@ app_apache_install:
 install_app: app_config app_apache_install
 
 install_db:
-	cd $(APP_DIR)/install && php install.php
+	cd $(APP_DIR)/install && php install.php --db_login="$(root_name)" --db_password="$(root_password)" --db_name="$(db_name)"
 
 install_files: install_z install_app perms
 
