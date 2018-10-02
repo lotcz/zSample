@@ -3,10 +3,9 @@
 	return [
 
 		'site_title' => 'zEngine sample app',
-
 		'site_description' => 'Basic eb app made with zEngine.',
-
 		'site_author' => 'Karel Zavadil',
+		'site_keywords' => 'comma,separated,keywords',
 
 		// will be used to create all link urls, no trailing slash
 		'base_url' => 'http://localhost',
