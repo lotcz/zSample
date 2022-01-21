@@ -6,11 +6,11 @@
 
 		if (z::get('delete', 0) == 1) {
 			$test_id = z::getInt('test_id');
-			TestModel::del($this->db, $test_id);
+			TestModel::deleteById($this->z->db, $test_id);
 			$this->message(sprintf('Record with id <strong>%s</strong> was deleted.', $test_id), 'danger');
 		} else {
 			$is_update = false;
-			$test = new TestModel($this->db);
+			$test = new TestModel($this->z->db);
 			$test_id = z::getInt('test_id');
 
 			if (isset($test_id) && $test_id > 0) {
@@ -34,4 +34,4 @@
 		}
 	}
 
-	$this->setData('items', TestModel::all($this->db));
+	$this->setData('items', TestModel::all($this->z->db));

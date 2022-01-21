@@ -9,9 +9,9 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 
 /**
- * Implements PT 2
+ * Implements Customer login test
  */
-public class TestCase1 extends zSampleTestBase {
+public class TestCaseVisitor extends zSampleTestBase {
 
     @BeforeClass
     public static void setUpClass() {
@@ -37,7 +37,7 @@ public class TestCase1 extends zSampleTestBase {
         // sign in
         LoginPageObject login_page = new LoginPageObject(this);
         login_page.open();
-        login_page.login(login, password);
+        login_page.login(visitor_email, visitor_password);
         assertTrue("Could not log in.", elementExists(By.className("log-out-menu-item")));
               
     }
