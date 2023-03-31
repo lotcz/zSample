@@ -1,19 +1,21 @@
-<div class="container p-1">
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+	<div class="container p-1">
 
-	<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
 		<a href="<?=$this->url("") ?>" class="navbar-brand"><?=$this->getData('site_title') ?></a>
 
-		<ul class="navbar-nav mr-auto">
-			<a class="nav-link" href="<?=$this->url("test") ?>">Test</a>
-			<a class="nav-link" href="<?=$this->url("admin") ?>">Admin</a>
+		<ul class="navbar-nav me-auto">
+			<?php
+				$this->renderLink('test', 'Test', 'nav-link');
+				$this->renderLink('admin', 'Admin', 'nav-link');
+			?>
 		</ul>
 
-		<ul class="navbar-nav">
+		<ul class="navbar-nav ms-auto">
 			<?php
 				if ($this->z->auth->isAuth()) {
 					?>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="customerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="customerDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<?=$this->z->auth->user->getLabel() ?>
 							</a>
 							<div class="dropdown-menu" aria-labelledby="customerDropdown">
@@ -30,7 +32,7 @@
 			?>
 
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle" href="#" id="languageDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<?=$this->z->i18n->selected_language->val('language_name') ?>
 				</a>
 
@@ -45,8 +47,10 @@
 				</div>
 			</li>
 		</ul>
+	</div>
+</nav>
 
-	</nav>
+<div class="container p-1">
 
 	<main role="main" class="p-1">
 		<h1 class="main-title"><?=$this->getData('page_title') ?></h1>
